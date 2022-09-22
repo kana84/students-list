@@ -20,3 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 */
 //生徒の一覧取得
 Route::get('/list','App\Http\Controllers\ApiStudentsController@getStudentList');
+
+//生徒の登録
+Route::post('/student','App\Http\Controllers\ApiStudentsController@insertStudent');
