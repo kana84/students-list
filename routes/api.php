@@ -23,3 +23,6 @@ Route::get('/list','App\Http\Controllers\ApiStudentsController@getStudentList');
 
 //生徒の登録
 Route::post('/student','App\Http\Controllers\ApiStudentsController@insertStudent');
+
+//生徒の削除(idを指定して削除ßS)
+Route::post('/delete','App\Http\Controllers\ApiStudentsController@deleteStudent');
