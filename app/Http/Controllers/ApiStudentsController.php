@@ -31,4 +31,13 @@ class ApiStudentsController extends Controller
         $students = $this->getStudentList();
         return $students;
     }
+
+    //生徒情報の削除
+    public function deleteStudent(Request $request){
+        $student = Student::find($request->id);
+        $student->delete();
+
+        $students = $this->getStudentList();
+        return $students;
+    }
 }
