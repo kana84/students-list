@@ -20,8 +20,6 @@ class ApiStudentsController extends Controller
         $student = new Student;
 
         $student->name = $request->name;
-
-
         $student->kana = $request->kana;
         $student->gender = $request->gender;
         $student->school_grade = $request->school_grade;
@@ -39,5 +37,19 @@ class ApiStudentsController extends Controller
 
         $students = $this->getStudentList();
         return $students;
+    }
+
+    //生徒情報の更新
+    public function updateStudent(Request $request){
+        $student = Student::find($request->id);
+
+        $student->name = $request->name;
+        $student->kana = $request->kana;
+        $student->gender = $request->gender;
+        $student->school_grade = $request->school_grade;
+        $student->class = $request->class;
+        $student->save();
+
+        return response()->json($student,options: JSON_UNESCAPED_UNICODE);
     }
 }
